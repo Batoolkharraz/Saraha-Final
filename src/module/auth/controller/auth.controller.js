@@ -7,7 +7,7 @@ import { sendEmail } from '../../../Services/sendEmail.js';
 export const signup =async (req,res)=>{
     const {userName,email,password}=req.body;
     const token = generateToken({email},process.env.EMAIL_TOKEN);
-    const link =`http://localhost:3001/auth/confirmEmail/${token}`
+    const link =`https://saraha-final.onrender.com/auth/confirmEmail/${token}`
     
     const user = await userModel.findOne({email});
     if(user){
