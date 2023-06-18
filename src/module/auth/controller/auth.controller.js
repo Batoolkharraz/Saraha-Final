@@ -9,6 +9,8 @@ export const signup =async (req,res)=>{
     const token = generateToken({email},process.env.EMAIL_TOKEN);
     const link =`https://saraha-final.onrender.com/auth/confirmEmail/${token}`
     
+    //const link =`http://localhost:3001/auth/confirmEmail/${token}`
+    
     const user = await userModel.findOne({email});
     if(user){
         return res.status(409).json({message:"email already exists"});
